@@ -1,0 +1,47 @@
+SELECT hire_date,
+       department_id AS DPTO,
+       job_id,
+       salary,
+       LAG(salary) OVER (ORDER BY hire_date) salary_ant
+  FROM hr.employees
+ WHERE job_id = 'FI_ACCOUNT';
+ 
+ 
+SELECT count(1) qtd_empregados, manager_id
+ from hr.employees
+group by manager_id
+order by qtd_empregados desc;
+
+
+SELECT employee_id,
+       first_name,
+       salary,
+       LEAD(salary) OVER (ORDER BY salary) salary_ant
+  FROM hr.employees
+ WHERE manager_id = 100;
+ 
+ 
+SELECT hire_date,
+       department_id AS DPTO,
+       job_id,
+       salary,
+       LAG(salary) 
+       OVER (PARTITION BY department_id ORDER BY salary) salary_ant
+  FROM hr.employees
+ WHERE manager_id = 100;
+ 
+ 
+SELECT employee_id,
+       first_name,
+       salary,
+       LEAD(salary) OVER (ORDER BY salary) salary_ant
+  FROM hr.employees
+ WHERE manager_id = 100;
+ 
+ 
+SELECT employee_id,
+       first_name,
+       salary,
+       LEAD(salary) OVER (ORDER BY salary DESC) salary_ant
+  FROM hr.employees
+ WHERE manager_id = 100;
