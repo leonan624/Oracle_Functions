@@ -1,0 +1,38 @@
+SELECT first_name,
+       salary / 2.7,
+ round(salary / 2.7) AS ROUND,
+ trunc(salary / 2.7) AS TRUNC
+  FROM hr.employees
+ WHERE job_id ='IT_PROG';
+ 
+ 
+SELECT first_name,
+       salary / 2.7,
+ round(salary / 2.7, 2) AS ROUND,
+ trunc(salary / 2.7, 2) AS TRUNC
+  FROM hr.employees
+ WHERE job_id ='IT_PROG';
+ 
+ 
+SELECT first_name,
+       hire_date,
+ round(hire_date, 'MONTH') AS ROUND,
+ trunc(hire_date, 'MONTH') AS TRUNC
+  FROM hr.employees
+ WHERE job_id ='IT_PROG';
+ 
+ 
+SELECT first_name,
+       hire_date,
+ round(hire_date, 'DAY') AS ROUND,
+ trunc(hire_date, 'DAY') AS TRUNC
+  FROM hr.employees
+ WHERE job_id ='IT_PROG';
+ 
+ 
+SELECT first_name,
+       hire_date,
+ round(hire_date, 'YYYY') AS ROUND,
+ trunc(hire_date, 'YYYY') AS TRUNC
+  FROM hr.employees
+ WHERE job_id ='IT_PROG';
