@@ -1,0 +1,34 @@
+---sem parametos na funçao DENSE_RANK
+SELECT hire_date,
+       department_id AS DPTO,
+       job_id,
+       salary,
+       LAG(salary) 
+       OVER (PARTITION BY department_id ORDER BY salary) salary_ant,
+       DENSE_RANK() 
+       OVER (PARTITION BY department_id ORDER BY salary) dense_rank
+  FROM hr.employees
+ WHERE manager_id = 100;
+ 
+ 
+ --- funçao DENSE_RANK com parametos
+SELECT manager_id,
+       salary,
+       employee_id,
+       DENSE_RANK(17000) 
+       WITHIN GROUP (ORDER BY salary)
+  FROM hr.employees
+ GROUP BY manager_id,
+          salary,
+          employee_id;
+		  
+          
+SELECT manager_id,
+       salary,
+       employee_id,
+       DENSE_RANK(8000) 
+       WITHIN GROUP (ORDER BY salary)
+  FROM hr.employees
+ GROUP BY manager_id,
+          salary,
+          employee_id;
