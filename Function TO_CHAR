@@ -1,0 +1,26 @@
+SELECT to_char(hire_date, 'YYYYMMDD') AS "TO_CHAR"
+  FROM hr.employees;
+  
+
+SELECT to_char(1210.73, '9999.9') AS "TO_CHAR"
+  FROM dual;
+  
+
+SELECT to_char(-1210.73, '9999.9') AS TO_CHAR
+  FROM dual;
+  
+
+SELECT to_char(1210.73, '9,999.99') AS TO_CHAR
+  FROM dual;
+
+
+SELECT to_char(1210.73, '$9,999.00') AS TO_CHAR
+  FROM dual;
+
+
+SELECT to_char(21, '000099') AS TO_CHAR
+  FROM dual;
+
+
+SELECT to_char(21, '99999') AS TO_CHAR
+  FROM dual;
