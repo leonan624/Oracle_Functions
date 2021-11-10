@@ -1,0 +1,12 @@
+SELECT next_day(TO_DATE('01/07/2017', 'DD/MM/YY'), 'SUNDAY') AS prox_sabado,
+       next_day(TO_DATE('29/06/2017', 'DD/MM/YY'), 'SAT') AS prox_quinta
+  FROM dual;
+  
+  
+---SUNDAY  - SUN
+---MONDAY  - MON
+---TUESDAY  - TUE
+---WEDNESDAY- WED 
+---THURSDAY - THU 
+---FRIDAY  - FRI
+---SATURDAY - SAT
