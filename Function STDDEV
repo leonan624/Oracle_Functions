@@ -1,0 +1,20 @@
+--- STDDEV ira fazer o calculo de desvio padrao na coluna salary 
+SELECT department_id AS DPTO,
+       hire_date,
+       last_name,
+       salary,
+       STDDEV(salary) OVER (ORDER BY hire_date) AS STDDEV
+  FROM hr.employees
+ WHERE department_id IN (60); 
+ 
+ 
+--- STDDEV ira fazer o calculo de desvio padrao na coluna salary 
+---ira organizar 'department_id' de acordo com 'hire_date'
+SELECT department_id AS DPTO,
+       hire_date,
+       last_name,
+       salary,
+       STDDEV(salary) 
+        OVER (PARTITION BY department_id ORDER BY hire_date) AS STDDEV
+  FROM hr.employees
+ WHERE department_id IN (60, 30, 40);
