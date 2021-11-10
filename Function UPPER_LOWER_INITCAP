@@ -1,0 +1,5 @@
+SELECT LOWER ('AprendaPL/SQL') FROM dual;
+
+SELECT UPPER ('AprendaPL/SQL') FROM dual;
+
+SELECT INITCAP ('aprenda pL/ sql') FROM dual;
