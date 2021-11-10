@@ -1,0 +1,8 @@
+SELECT substr('O Aprendaplsql é o melhor site', 3) 
+  FROM dual;
+  
+SELECT substr('O Aprendaplsql é o melhor site', 3, 12) 
+  FROM dual;
+  
+SELECT substr('O Aprendaplsql é o melhor site', -11, 6) 
+  FROM dual;
