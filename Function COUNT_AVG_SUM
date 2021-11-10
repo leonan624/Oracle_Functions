@@ -1,0 +1,57 @@
+---3 exemplos de consulta count, sendo a 'count(1)' a melhor opçao por questoes de tunning
+SELECT count(*), 
+       count(employee_id), 
+       count(1) FROM hr.employees;
+	   
+	   
+--- essa consulta resultara em erro por faltar a clausula GROUP BY       
+SELECT manager_id,
+       count(1) 
+  FROM hr.employees;
+  
+  
+SELECT manager_id,
+       count(1) 
+  FROM hr.employees
+ GROUP BY manager_id;
+ 
+ 
+SELECT manager_id,
+       count(1) qtd_funcionarios
+  FROM hr.employees
+ WHERE manager_id in (205, 101, 145, 201, 102)
+ GROUP BY manager_id;
+ 
+ 
+--- a clausula HAVING e necessaria caso queira por uma condiçao na funçao. ja que WHERE nao permite isso
+SELECT manager_id,
+       count(1) qtd_funcionarios
+  FROM hr.employees
+ WHERE manager_id in (205, 101, 145, 201, 102)
+HAVING count(1) > 1
+ GROUP BY manager_id;
+ 
+ 
+SELECT manager_id,
+       count(1) qtd_funcionarios,
+       sum(salary)
+  FROM hr.employees
+ WHERE manager_id in (205, 101, 145, 201, 102)
+HAVING count(1) > 1
+ GROUP BY manager_id;
+ 
+ 
+SELECT manager_id,
+       count(1) qtd_funcionarios,
+       sum(salary),
+       avg(SALARY)
+  FROM hr.employees
+ WHERE manager_id in (205, 101, 145, 201, 102)
+--HAVING sum(salary)  (avg(SALARY) * count(1))
+ GROUP BY manager_id;
+ 
+ 
+SELECT department_id,
+       avg(SALARY)
+  FROM hr.employees
+ GROUP BY department_id;
