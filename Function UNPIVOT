@@ -1,0 +1,40 @@
+--- criação da tabela pivotada
+CREATE table matriz_gerentes 
+ AS
+ WITH valores_pivot
+AS
+ (
+  SELECT e.manager_id manager_id, d.department_name department_name, 
+         e.employee_id qtd_empregados
+  FROM hr.employees e
+ INNER JOIN hr.departments d
+    ON e.department_id = d.department_id
+ )
+ SELECT * FROM valores_pivot
+   PIVOT
+  (
+    COUNT(qtd_empregados)
+	---o prefixo as depois de 'IT' AS IT facilita na hora de usar a função UPIVOT
+    FOR department_name IN ('IT' AS IT, 'Administration' AS Administration, 
+                            'Executive' AS Executive, 'Marketing' AS Marketing,
+                            'Purchasing' AS Purchasing, 'Sales' AS Sales, 
+                            'Shipping' AS Shipping) 
+  )
+  ORDER BY manager_id;
+  
+  
+--- comando select 
+SELECT * FROM matriz_gerentes;
+
+--- funçao UPIVOT
+SELECT *
+  FROM matriz_gerentes
+UNPIVOT
+(
+  qtd_empregados
+   FOR department_name IN (IT, Administration, 
+                           Executive, Marketing,
+                           Purchasing, Sales, 
+                           Shipping)
+)
+ORDER BY manager_id, department_name
