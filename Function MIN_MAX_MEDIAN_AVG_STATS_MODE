@@ -1,0 +1,17 @@
+SELECT manager_id,
+       min(salary),
+       max(salary),
+       avg(salary),
+       median(salary)
+  FROM hr.employees
+GROUP by manager_id;
+
+
+SELECT manager_id,
+       min(salary),
+       max(salary),
+       avg(salary) media,
+       median(salary) mediana,
+       stats_mode(salary) moda
+  FROM hr.employees
+GROUP by manager_id;
