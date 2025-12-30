@@ -1,2 +1,2 @@
 # Oracle_Functions
-Algumas funções de uso pratico p/ a manipulação de consultas em Oracle
+Some practical-use functions for handling queries in Oracle
